@@ -66,8 +66,10 @@ All models are deployed using Docker containers with VLLM:
 
 1. **Clone the repository**:
 ```bash
-git clone [repository-url]
-cd [repository-name]
+mkdir BrainMIND
+cd BrainMIND
+wget https://anonymous.4open.science/api/repo/BrainMIND/zip -O BrainMIND.zip
+unzip BrainMIND.zip
 ```
 
 2. **Install Python dependencies**:
@@ -127,28 +129,6 @@ The system supports multiple state-of-the-art language models:
 - `llama3.1_8b`
 - And more...
 
-## Input Data Format
-
-The system expects JSON files with the following structure:
-
-```json
-[
-  {
-    "FID": "unique_identifier",
-    "patient_id": "patient_123",
-    "检查时间": "2024-01-01",
-    "性别": "Male",
-    "年龄": 65,
-    "临床诊断": "Clinical diagnosis",
-    "检查项目": "Brain MRI",
-    "原_检查所见": "Original findings text...",
-    "原_检查结论": "Original conclusion text...",
-    "临床信息汇总": "Clinical information summary...",
-    "标签": "Disease label",
-    "标准化结论": ["Standardized conclusions"]
-  }
-]
-```
 
 ## Output Structure
 
@@ -183,25 +163,6 @@ The system uses a standardized 16-category disease classification:
 15. Encephalitis
 16. Inflammatory demyelination
 
-## Performance Considerations
-
-- **Concurrent Processing**: Multi-threaded execution for improved throughput
-- **Retry Mechanisms**: Automatic retry for failed API calls
-- **Resume Capability**: Skip already processed files for interrupted runs
-- **Memory Management**: Efficient handling of large datasets
-
-## Citation
-
-If you use this code in your research, please cite:
-
-```bibtex
-@article{your_paper_2024,
-  title={Evaluation of Large Language Models for Automated Diagnosis in Brain MRI Reporting: A Multicenter Benchmark and Reader Study},
-  author={[Author Names]},
-  journal={[Journal Name]},
-  year={2024}
-}
-```
 
 ## License
 
