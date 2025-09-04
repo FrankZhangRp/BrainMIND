@@ -163,7 +163,6 @@ The system uses a standardized 16-category disease classification:
 15. Encephalitis
 16. Inflammatory demyelination
 
-
 ## License
 
 This project is licensed under the MIT License.
