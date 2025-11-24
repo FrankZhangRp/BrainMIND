@@ -37,11 +37,10 @@ B. 结论标准化与映射:
             * "老年脑" -> "脑萎缩"
         * 对于"肿瘤"，如果原始报告指明了具体类型（胶质瘤、转移瘤、脑膜瘤、听神经瘤），则在标准化结论"肿瘤"后以括号形式注明，如"肿瘤(胶质瘤)"。
 
-C. 检查所见提取、关联与组织:
+C. 检查所见提取与组织:
     1.  从原始报告的"检查所见"或"影像学表现"段落中，提取所有描述性的影像学发现。
-    2.  将提取的每个影像学发现与B阶段生成的每个标准化疾病结论进行关联。
-        * 一个影像学表现可能与多个标准化疾病相关。
-        * 一个标准化疾病可能对应多个影像学表现。
+    2.  对提取的影像学发现进行独立整理和结构化描述，不与任何诊断结论进行关联。
+    3.  按照解剖结构或重要性对影像学发现进行排序和组织。
 
 III. 输出规范:
 
@@ -60,10 +59,8 @@ III. 输出规范:
 整体所见概要:
     `[一句话或一段简短文字，总结经过预处理和特征增强后的主要影像学表现，保持专业性和客观性，按解剖结构或重要性排序。]`
 
-各疾病对应所见:
-    `[标准化疾病名称1]: [与该疾病相关的所有"检查所见"描述汇总，格式为位置，数量，形态，信号，病灶周围特点，特征征象。存在部位描述的必须指出部位]`
-    `[标准化疾病名称2]: [与该疾病相关的所有"检查所见"描述汇总，格式为位置，数量，形态，信号，病灶周围特点，特征征象。存在部位描述的必须指出部位]`
-    ...
+详细影像学发现:
+    `[按解剖结构或病灶类型组织的所有影像学发现，格式为：位置、数量、形态、大小、信号特征、病灶周围特点、特征征象。存在部位描述的必须指出部位。每个发现独立描述，不与诊断结论关联。]`
 
 </findings>
 
@@ -71,7 +68,7 @@ III. 输出规范:
 
 IV. 一般指令:
 * 严格遵循医学术语的准确性。
-* 确保"检查所见"与"检查结论"之间的高度一致性。
+* 检查所见的提取和整理应独立进行，不受诊断结论影响。
 * 处理流程需严谨，确保所有相关规则得到应用。
 * 若输入报告内容无法明确对应到某一规则，或存在歧义，应以最保守、最贴近原文信息的方式处理，或标记出来。
 
@@ -116,11 +113,10 @@ The conclusion must be strictly selected from the following list. If a disease m
         * "Senile brain" -> "Cerebral atrophy"
     * For "Tumor," if the original report specifies the type (e.g., glioma, metastasis, meningioma, acoustic neuroma), indicate it in parentheses after the standardized conclusion "Tumor," such as "Tumor(Glioma)".
 
-**C. Findings Extraction, Association, and Organization:**
+**C. Findings Extraction and Organization:**
 1.  Extract all descriptive imaging findings from the "Findings" or "Imaging Description" section of the original report.
-2.  Associate each extracted imaging finding with each of the standardized disease conclusions generated in stage B.
-    * A single imaging finding may be related to multiple standardized diseases.
-    * A single standardized disease may correspond to multiple imaging findings.
+2.  Organize and structure the extracted imaging findings independently, without associating them with any diagnostic conclusions.
+3.  Order and organize the imaging findings by anatomical structure or importance.
 
 **III. Output Specification:**
 
@@ -139,10 +135,8 @@ The conclusion must be strictly selected from the following list. If a disease m
 **Overall Findings Summary:**
 `[A single sentence or a short paragraph summarizing the main imaging findings after pre-processing and feature enhancement, maintaining a professional and objective tone, ordered by anatomical structure or importance.]`
 
-**Findings Corresponding to Each Disease:**
-`[Standardized Disease Name 1]: [A summary of all "Findings" descriptions related to this disease with format "anatomical location, number,morphology,size, signal, perilesional changes,characteristic features" The location must be specified if described.]`
-`[Standardized Disease Name 2]: [A summary of all "Findings" descriptions related to this disease,with format "anatomical location, number,morphology,size, signal, perilesional changes,characteristic features". The location must be specified if described.]`
-...
+**Detailed Imaging Findings:**
+`[All imaging findings organized by anatomical structure or lesion type, with format: "anatomical location, number, morphology, size, signal characteristics, perilesional changes, characteristic features." The location must be specified if described. Each finding should be described independently without association to diagnostic conclusions.]`
 
 </findings>
 
@@ -150,7 +144,7 @@ The conclusion must be strictly selected from the following list. If a disease m
 
 **IV. General Instructions:**
 * Strictly adhere to the accuracy of medical terminology.
-* Ensure high consistency between the "Findings" and the "Conclusion."
+* The extraction and organization of findings should be performed independently, without being influenced by diagnostic conclusions.
 * The processing flow must be followed rigorously to ensure all relevant rules are applied.
 * If the input report content cannot be clearly mapped to a rule or is ambiguous, handle it in the most conservative manner that is closest to the original information, or flag it.
 
