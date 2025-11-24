@@ -39,7 +39,7 @@ B. 结论标准化与映射:
 
 C. 检查所见提取与组织:
     1.  从原始报告的"检查所见"或"影像学表现"段落中，提取所有描述性的影像学发现。
-    2.  对提取的影像学发现进行独立整理和结构化描述，不与任何诊断结论进行关联。
+    2.  对提取的影像学发现进行独立整理和结构化描述。
     3.  按照解剖结构或重要性对影像学发现进行排序和组织。
 
 III. 输出规范:
@@ -60,7 +60,7 @@ III. 输出规范:
     `[一句话或一段简短文字，总结经过预处理和特征增强后的主要影像学表现，保持专业性和客观性，按解剖结构或重要性排序。]`
 
 详细影像学发现:
-    `[按解剖结构或病灶类型组织的所有影像学发现，格式为：位置、数量、形态、大小、信号特征、病灶周围特点、特征征象。存在部位描述的必须指出部位。每个发现独立描述，不与诊断结论关联。]`
+    `[按解剖结构或病灶类型组织的所有影像学发现，格式为：位置、数量、形态、大小、信号特征、病灶周围特点、特征征象。存在部位描述的必须指出部位。每个发现独立描述。]`
 
 </findings>
 
@@ -115,7 +115,7 @@ The conclusion must be strictly selected from the following list. If a disease m
 
 **C. Findings Extraction and Organization:**
 1.  Extract all descriptive imaging findings from the "Findings" or "Imaging Description" section of the original report.
-2.  Organize and structure the extracted imaging findings independently, without associating them with any diagnostic conclusions.
+2.  Organize and structure the extracted imaging findings independently.
 3.  Order and organize the imaging findings by anatomical structure or importance.
 
 **III. Output Specification:**
@@ -136,7 +136,7 @@ The conclusion must be strictly selected from the following list. If a disease m
 `[A single sentence or a short paragraph summarizing the main imaging findings after pre-processing and feature enhancement, maintaining a professional and objective tone, ordered by anatomical structure or importance.]`
 
 **Detailed Imaging Findings:**
-`[All imaging findings organized by anatomical structure or lesion type, with format: "anatomical location, number, morphology, size, signal characteristics, perilesional changes, characteristic features." The location must be specified if described. Each finding should be described independently without association to diagnostic conclusions.]`
+`[All imaging findings organized by anatomical structure or lesion type, with format: "anatomical location, number, morphology, size, signal characteristics, perilesional changes, characteristic features." The location must be specified if described. Each finding should be described independently.]`
 
 </findings>
 
