@@ -11,7 +11,9 @@ This project evaluates the performance of large language models (LLMs) in automa
 The repository consists of three main components:
 
 ### 1. `prompt.py` - Prompt Engineering Module
+
 Contains all system prompts for different tasks and languages:
+
 - **Report Structuring Prompts**: `SYSTEM_PROMPT_FINDINGS_CHINESE` and `SYSTEM_PROMPT_FINDINGS_ENGLISH` for converting unstructured MRI reports into standardized formats
 - **Diagnosis Generation Prompts**: Multiple prompt variants for diagnostic reasoning:
   - `FINDINGS_TO_CONCLUSION_PROMPT_TOP1_*`: Single most likely diagnosis
@@ -21,17 +23,21 @@ Contains all system prompts for different tasks and languages:
 - **Disease Classification**: 16 standardized brain pathology categories including normal findings, white matter hyperintensities, cerebral atrophy, acute/subacute infarction, and various other brain lesions
 
 ### 2. `finding_structure.py` - Report Structuring Module
+
 Processes raw MRI reports to extract and structure findings:
+
 - **Input Processing**: Handles JSON files containing medical reports with original findings and conclusions
 - **AI-Powered Structuring**: Uses DeepSeek models to clean and standardize report content
-- **Output Generation**: 
+- **Output Generation**:
   - Individual JSON files for each processed report
   - Consolidated Excel files for batch analysis
 - **Structured Extraction**: Separates overall findings summary from disease-specific findings
 - **Concurrent Processing**: Multi-threaded processing for efficient batch operations
 
 ### 3. `diagnosis_from_findings.py` - Diagnostic Inference Module
+
 Generates diagnostic conclusions from structured findings:
+
 - **Multiple Inference Modes**:
   - `direct`: Uses original findings directly
   - `struct`: Uses pre-structured findings
@@ -44,6 +50,7 @@ Generates diagnostic conclusions from structured findings:
 ## System Requirements
 
 ### Hardware Specifications
+
 - **Deployment Platform**: NVIDIA-H20 with 141GB memory each card
 - **GPU Configuration**:
   - DeepSeek models: 8 GPUs
@@ -51,20 +58,141 @@ Generates diagnostic conclusions from structured findings:
   - Other models: Single GPU
 
 ### Software Dependencies
+
 - **Python**: 3.11.7
 - **OpenAI API**: 1.71.0
 - **Pandas**: 2.1.4
 - **Additional packages**: `concurrent.futures`, `tqdm`, `argparse`, `json`
 
 ### VLLM Deployment
+
 All models are deployed using Docker containers with VLLM:
+
 - Each model uses the officially recommended VLLM version
 - Docker-based deployment for scalability and consistency
 - OpenAI-compatible API endpoints for seamless integration
 
+## vLLM + Docker (docker-compose) Deployment
+
+This repository provides **per-model** `docker-compose.yml` templates under `deploy/vllm/` to launch local checkpoints as an **OpenAI-compatible vLLM server** (`/v1/*`).
+
+### Prerequisites
+
+- **Docker** and **Docker Compose v2+**
+- **NVIDIA driver** and **NVIDIA Container Toolkit** (for GPU in containers)
+
+### Available compose templates
+
+- `deploy/vllm/deepseek-r1/docker-compose.yml`
+- `deploy/vllm/deepseek-v3/docker-compose.yml`
+- `deploy/vllm/gpt_oss_120b/docker-compose.yml`
+- `deploy/vllm/qwen3_235b_2507/docker-compose.yml`
+- (Generic template) `deploy/vllm/docker-compose.yml`
+
+### Quick start (example: DeepSeek-R1)
+
+1. Put model files on the host (example: `/data/models/DeepSeek/DeepSeek-R1`).
+1. Export environment variables and start:
+
+```bash
+export MODEL_DIR=/data/models
+export MODEL_PATH=/models/DeepSeek/DeepSeek-R1
+export SERVED_MODEL_NAME=deepseek-r1
+export TP_SIZE=8
+export MAX_MODEL_LEN=120000
+export GPU_MEMORY_UTILIZATION=0.95
+export PORT=9990
+export VLLM_API_KEY=my-secret-key
+export NVIDIA_VISIBLE_DEVICES=all
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+
+docker compose -f deploy/vllm/deepseek-r1/docker-compose.yml up -d
+```
+
+1. Verify:
+
+```bash
+curl -s http://localhost:${PORT}/v1/models \
+  -H "Authorization: Bearer ${VLLM_API_KEY}" | head
+```
+
+### Quick start (example: DeepSeek-V3)
+
+```bash
+export MODEL_DIR=/data/models
+export MODEL_PATH=/models/DeepSeek-V3-0324
+export SERVED_MODEL_NAME=deepseek-chat
+export TP_SIZE=8
+export MAX_MODEL_LEN=120000
+export GPU_MEMORY_UTILIZATION=0.95
+export PORT=9990
+export VLLM_API_KEY=my-secret-key
+export NVIDIA_VISIBLE_DEVICES=all
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
+
+docker compose -f deploy/vllm/deepseek-v3/docker-compose.yml up -d
+```
+
+### Quick start (example: GPT-OSS-120B)
+
+```bash
+export MODEL_DIR=/data/models/openai-gpt-oss-120b
+export SERVED_MODEL_NAME=gpt_oss_120b
+export TP_SIZE=1
+export MAX_MODEL_LEN=8192
+export GPU_MEMORY_UTILIZATION=0.95
+export PORT=9001
+export VLLM_API_KEY=my-secret-key
+export NVIDIA_VISIBLE_DEVICES=0
+
+docker compose -f deploy/vllm/gpt_oss_120b/docker-compose.yml up -d
+```
+
+### Quick start (example: Qwen3-235B-2507)
+
+```bash
+export MODEL_DIR=/data/models/Qwen3_235B_2507
+export SERVED_MODEL_NAME=qwen3_235b_2507
+export TP_SIZE=4
+export MAX_MODEL_LEN=98976
+export GPU_MEMORY_UTILIZATION=0.85
+export PORT=9010
+export VLLM_API_KEY=my-secret-key
+export NVIDIA_VISIBLE_DEVICES=0,1,2,3
+export OMP_NUM_THREADS=32
+
+docker compose -f deploy/vllm/qwen3_235b_2507/docker-compose.yml up -d
+```
+
+### Python client configuration (OpenAI-compatible)
+
+Point `base_url` to the vLLM server:
+
+```python
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="my-secret-key",
+    base_url="http://localhost:9990/v1",
+)
+```
+
+### Common variables
+
+- **`MODEL_DIR`**: host directory to mount (read-only) into the container
+- **`MODEL_PATH`**: container path to the model checkpoint (used by DeepSeek templates)
+- **`PORT`**: host port to expose the vLLM server
+- **`SERVED_MODEL_NAME`**: model id returned by `/v1/models` and used in requests
+- **`TP_SIZE`**: tensor-parallel size (often equals the number of GPUs)
+- **`MAX_MODEL_LEN`**: max context length (larger values require more VRAM)
+- **`GPU_MEMORY_UTILIZATION`**: VRAM utilization cap (tune between 0.85 ~ 0.95)
+- **`VLLM_API_KEY`**: API key required by the server
+- **`NVIDIA_VISIBLE_DEVICES`** / **`CUDA_VISIBLE_DEVICES`**: GPU visibility / pinning
+
 ## Installation
 
 1. **Clone the repository**:
+
 ```bash
 mkdir BrainMIND
 cd BrainMIND
@@ -72,18 +200,21 @@ wget https://anonymous.4open.science/api/repo/BrainMIND/zip -O BrainMIND.zip
 unzip BrainMIND.zip
 ```
 
-2. **Install Python dependencies**:
+1. **Install Python dependencies**:
+
 ```bash
 pip install openai==1.71.0 pandas==2.1.4 tqdm
 ```
 
-3. **Configure API endpoints**:
+1. **Configure API endpoints**:
+
    - Update the `api_key` and `base_url` in the respective Python files
    - Ensure VLLM services are running and accessible
 
 ## Usage
 
 ### 1. Report Structuring
+
 Convert raw MRI reports to structured format:
 
 ```bash
@@ -91,10 +222,12 @@ python finding_structure.py --json_path /path/to/reports.json --language english
 ```
 
 **Parameters**:
+
 - `--json_path`: Path to input JSON file containing medical reports
 - `--language`: Processing language (`chinese` or `english`)
 
 ### 2. Diagnostic Inference
+
 Generate diagnostic conclusions from findings:
 
 ```bash
@@ -108,6 +241,7 @@ python diagnosis_from_findings.py \
 ```
 
 **Parameters**:
+
 - `--json_path`: Input JSON file path
 - `--model`: AI model selection (deepseek-reasoner, qwen3_235b_2507, etc.)
 - `--prompt_type`: Diagnostic approach (`top1`, `top3`, `free`)
@@ -117,7 +251,9 @@ python diagnosis_from_findings.py \
 - `--max_workers`: Concurrent processing threads
 
 ### 3. Supported Models
+
 The system supports multiple state-of-the-art language models:
+
 - `deepseek-reasoner`
 - `qwen3_235b_2507`
 - `gpt_oss_120b`
@@ -129,15 +265,16 @@ The system supports multiple state-of-the-art language models:
 - `llama3.1_8b`
 - And more...
 
-
 ## Output Structure
 
 ### Structured Reports
+
 - **Individual JSON files**: Detailed processing results for each report
 - **Excel summaries**: Consolidated results for analysis
 - **Reasoning traces**: Complete AI reasoning process for transparency
 
 ### Diagnostic Results
+
 - **Inference conclusions**: AI-generated diagnostic opinions
 - **Confidence scoring**: Multiple diagnosis options with rankings
 - **Clinical correlation**: Integration of findings with clinical context

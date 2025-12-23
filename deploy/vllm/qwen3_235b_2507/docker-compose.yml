@@ -1,0 +1,45 @@
+version: "3.9"
+
+services:
+  qwen3_235b_2507:
+    # If you have a pre-built image with the right CUDA/PyTorch/vLLM stack, set it here.
+    # Otherwise, you may switch to a vLLM official image and ensure required dependencies are present.
+    image: ${IMAGE:-vllm/vllm-openai:v0.8.4}
+    container_name: qwen3_235b_2507
+    restart: unless-stopped
+    gpus: all
+
+    ports:
+      - "${PORT:-9010}:8000"
+
+    ipc: host
+    shm_size: "${SHM_SIZE:-20gb}"
+
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=${NVIDIA_VISIBLE_DEVICES:-0,1,2,3}
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - OMP_NUM_THREADS=${OMP_NUM_THREADS:-32}
+
+    volumes:
+      - ${MODEL_DIR:-/data/models/Qwen3_235B_2507}:/workspace/qwen3_235b_2507:ro
+      - ${MEDIA_CACHE_DIR:-/data/media_cache}:/data/media_cache
+      - ${HF_CACHE_DIR:-./.hf_cache}:/root/.cache/huggingface
+
+    command:
+      - "python"
+      - "-m"
+      - "vllm.entrypoints.openai.api_server"
+      - "--model"
+      - "/workspace/qwen3_235b_2507"
+      - "--served-model-name"
+      - "${SERVED_MODEL_NAME:-qwen3_235b_2507}"
+      - "--tensor-parallel-size"
+      - "${TP_SIZE:-4}"
+      - "--gpu-memory-utilization"
+      - "${GPU_MEMORY_UTILIZATION:-0.85}"
+      - "--max-model-len"
+      - "${MAX_MODEL_LEN:-98976}"
+      - "--api-key"
+      - "${VLLM_API_KEY:-my-secret-key}"
+
+
