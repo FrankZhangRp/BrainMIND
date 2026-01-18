@@ -5,7 +5,7 @@
 
 ## Authors
 
-**Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</sup>, Yu Lu<sup>3*</sup>, Xiao-Er Wei<sup>1</sup>, Zheng Sun<sup>1</sup>, Bao-Hui Guan<sup>1</sup>, Jun-Jie Zhang<sup>1</sup>, Xue Wu<sup>4</sup>, Lei Zhang<sup>2#</sup>, Tian-Le Wang<sup>3#</sup>, Yue-Hua Li<sup>1#</sup>**
+Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</sup>, Yu Lu<sup>3*</sup>, Xiao-Er Wei<sup>1</sup>, Zheng Sun<sup>1</sup>, Bao-Hui Guan<sup>1</sup>, Jun-Jie Zhang<sup>1</sup>, Xue Wu<sup>4</sup>, Lei Zhang<sup>2#</sup>, Tian-Le Wang<sup>3#</sup>, Yue-Hua Li<sup>1#</sup>
 
 ### Institutions
 
@@ -317,21 +317,6 @@ The system uses a standardized 16-category disease classification:
 14. Brain abscess
 15. Encephalitis
 16. Inflammatory demyelination
-
-## Citation
-
-If you use this code or find our work helpful, please cite our paper:
-
-```bibtex
-@article{wang2026evaluation,
-  title={Evaluation of large language models for diagnostic impression generation from brain MRI report findings: a multicenter benchmark and reader study},
-  author={Wang, Ming-Liang and Zhang, Rui-Peng and Wu, Wen-Juan and Lu, Yu and Wei, Xiao-Er and Sun, Zheng and Guan, Bao-Hui and Zhang, Jun-Jie and Wu, Xue and Zhang, Lei and Wang, Tian-Le and Li, Yue-Hua},
-  journal={npj Digital Medicine},
-  year={2026},
-  publisher={Nature Publishing Group},
-  doi={10.1038/s41746-026-02380-4}
-}
-```
 
 ## License
 
