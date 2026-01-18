@@ -3,8 +3,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
-> **Official implementation of the research paper published in *npj | digital medicine* in partnership with Seoul National University Bundang Hospital**
-
 ## Authors
 
 **Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</sup>, Yu Lu<sup>3*</sup>, Xiao-Er Wei<sup>1</sup>, Zheng Sun<sup>1</sup>, Bao-Hui Guan<sup>1</sup>, Jun-Jie Zhang<sup>1</sup>, Xue Wu<sup>4</sup>, Lei Zhang<sup>2#</sup>, Tian-Le Wang<sup>3#</sup>, Yue-Hua Li<sup>1#</sup>**
