@@ -1,6 +1,26 @@
-# Evaluation of Large Language Models for Automated Diagnosis in Brain MRI Reporting
+# Evaluation of Large Language Models for Diagnostic Impression Generation from Brain MRI Report Findings: A Multicenter Benchmark and Reader Study
 
-This repository contains the open-source implementation for the research paper "Evaluation of Large Language Models for Automated Diagnosis in Brain MRI Reporting: A Multicenter Benchmark and Reader Study".
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+
+> **Official implementation of the research paper published in *npj | digital medicine* in partnership with Seoul National University Bundang Hospital**
+
+## Authors
+
+**Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</sup>, Yu Lu<sup>3*</sup>, Xiao-Er Wei<sup>1</sup>, Zheng Sun<sup>1</sup>, Bao-Hui Guan<sup>1</sup>, Jun-Jie Zhang<sup>1</sup>, Xue Wu<sup>4</sup>, Lei Zhang<sup>2#</sup>, Tian-Le Wang<sup>3#</sup>, Yue-Hua Li<sup>1#</sup>**
+
+### Institutions
+
+1. Department of Radiology, Shanghai Sixth People's Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China
+2. Department of Radiology, Wuxi No.2 People's Hospital, Jiangnan University Medical Center, Wuxi, China
+3. Department of Radiology, Southeast University Affiliated Nantong First People's Hospital, Nantong, China
+4. Institute for Global Health Sciences, University of California, San Francisco, CA, USA
+
+<sup>*</sup>Ming-Liang Wang, Rui-Peng Zhang, Wen-Juan Wu and Yu Lu were co-first authors.
+
+<sup>#</sup>**Corresponding authors:** Yue-Hua Li ([liyuehua77@sjtu.edu.cn](mailto:liyuehua77@sjtu.edu.cn)), Tian-Le Wang ([wangtianle9192@163.com](mailto:wangtianle9192@163.com)), Lei Zhang ([leon3183@163.com](mailto:leon3183@163.com))
+
+---
 
 ## Overview
 
@@ -300,26 +320,27 @@ The system uses a standardized 16-category disease classification:
 15. Encephalitis
 16. Inflammatory demyelination
 
+## Citation
+
+If you use this code or find our work helpful, please cite our paper:
+
+```bibtex
+@article{wang2026evaluation,
+  title={Evaluation of large language models for diagnostic impression generation from brain MRI report findings: a multicenter benchmark and reader study},
+  author={Wang, Ming-Liang and Zhang, Rui-Peng and Wu, Wen-Juan and Lu, Yu and Wei, Xiao-Er and Sun, Zheng and Guan, Bao-Hui and Zhang, Jun-Jie and Wu, Xue and Zhang, Lei and Wang, Tian-Le and Li, Yue-Hua},
+  journal={npj Digital Medicine},
+  year={2026},
+  publisher={Nature Publishing Group},
+  doi={10.1038/s41746-026-02380-4}
+}
+```
+
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2024 [Author Names]
+Copyright (c) 2025 Ming-Liang Wang, Rui-Peng Zhang, Wen-Juan Wu, Yu Lu, Xiao-Er Wei, Zheng Sun, Bao-Hui Guan, Jun-Jie Zhang, Xue Wu, Lei Zhang, Tian-Le Wang, Yue-Hua Li
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## Acknowledgments
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+This research was conducted in partnership with Seoul National University Bundang Hospital and published in *npj | digital medicine*.
