@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BrainMIND - LLM Evaluation for Brain MRI Diagnosis</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="hero">
+        <div class="container">
+            <h1>Evaluation of Large Language Models for Diagnostic Impression Generation from Brain MRI Report Findings</h1>
+            <p class="subtitle">A Multicenter Benchmark and Reader Study</p>
+            <div class="badges">
+                <a href="https://doi.org/10.1038/s41746-026-02380-4" class="badge doi">DOI: 10.1038/s41746-026-02380-4</a>
+                <a href="https://www.nature.com/articles/s41746-026-02380-4" class="badge paper">npj Digital Medicine</a>
+                <a href="https://github.com/FrankzhangRp/BrainMIND" class="badge github">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="authors">
+            <h2>Authors</h2>
+            <p class="author-list">
+                Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</sup>, Yu Lu<sup>3*</sup>,
+                Xiao-Er Wei<sup>1</sup>, Zheng Sun<sup>1</sup>, Bao-Hui Guan<sup>1</sup>, Jun-Jie Zhang<sup>1</sup>,
+                Xue Wu<sup>4</sup>, Lei Zhang<sup>2#</sup>, Tian-Le Wang<sup>3#</sup>, Yue-Hua Li<sup>1#</sup>
+            </p>
+            <div class="institutions">
+                <p><sup>1</sup> Department of Radiology, Shanghai Sixth People's Hospital Affiliated to Shanghai Jiao Tong University School of Medicine, Shanghai, China</p>
+                <p><sup>2</sup> Department of Radiology, Wuxi No.2 People's Hospital, Jiangnan University Medical Center, Wuxi, China</p>
+                <p><sup>3</sup> Department of Radiology, Southeast University Affiliated Nantong First People's Hospital, Nantong, China</p>
+                <p><sup>4</sup> Institute for Global Health Sciences, University of California, San Francisco, CA, USA</p>
+            </div>
+            <p class="notes"><sup>*</sup>Co-first authors &nbsp;&nbsp; <sup>#</sup>Corresponding authors</p>
+        </section>
+
+        <section class="graphical-abstract">
+            <h2>Graphical Abstract</h2>
+            <img src="../imgs/flowchart.svg" alt="Study Flowchart">
+            <p class="caption">Figure 1: Study flowchart showing the evaluation framework for LLMs in brain MRI diagnostic impression generation.</p>
+        </section>
+
+        <section class="overview">
+            <h2>Overview</h2>
+            <p>This project evaluates the performance of large language models (LLMs) in automated brain MRI report analysis and diagnosis generation. The system processes unstructured MRI reports and generates structured diagnostic conclusions using state-of-the-art language models deployed via VLLM.</p>
+        </section>
+
+        <section class="highlights">
+            <h2>Key Findings</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card">
+                    <h3>Best Performance</h3>
+                    <p>DeepSeek-R1 achieved the highest performance among 10 evaluated LLMs on 4,293 brain MRI reports.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>97.6% Accuracy</h3>
+                    <p>Top-3 differential diagnosis prompting achieved 97.6% patient-level accuracy vs 87.1% for single diagnosis.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>Improved Efficiency</h3>
+                    <p>LLM assistance reduced radiologist reading time from 61s to 53s while improving diagnostic accuracy.</p>
+                </div>
+                <div class="highlight-card">
+                    <h3>15 Disease Categories</h3>
+                    <p>Comprehensive evaluation across 15 brain disease categories with 9,973 diagnostic labels.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="citation">
+            <h2>Citation</h2>
+            <pre><code>@article{wang_evaluation_2026,
+  title = {Evaluation of large language models for diagnostic impression
+           generation from brain {MRI} report findings: a multicenter
+           benchmark and reader study},
+  author = {Wang, Ming-Liang and Zhang, Rui-Peng and Wu, Wen-Juan and
+            Lu, Yu and Wei, Xiao-Er and Sun, Zheng and Guan, Bao-Hui and
+            Zhang, Jun-Jie and Wu, Xue and Zhang, Lei and Wang, Tian-Le
+            and Li, Yue-Hua},
+  journal = {npj Digital Medicine},
+  year = {2026},
+  doi = {10.1038/s41746-026-02380-4}
+}</code></pre>
+        </section>
+
+        <section class="links">
+            <h2>Resources</h2>
+            <div class="link-grid">
+                <a href="https://www.nature.com/articles/s41746-026-02380-4" class="link-card">
+                    <span class="icon">📄</span>
+                    <span>Read Paper</span>
+                </a>
+                <a href="https://github.com/FrankzhangRp/BrainMIND" class="link-card">
+                    <span class="icon">💻</span>
+                    <span>View Code</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Ming-Liang Wang, Rui-Peng Zhang, Wen-Juan Wu, Yu Lu, et al. Licensed under MIT.</p>
+            <p>Published in <a href="https://www.nature.com/npjdigitalmed/">npj Digital Medicine</a></p>
+        </div>
+    </footer>
+</body>
+</html>

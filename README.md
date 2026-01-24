@@ -1,5 +1,7 @@
 # Evaluation of Large Language Models for Diagnostic Impression Generation from Brain MRI Report Findings: A Multicenter Benchmark and Reader Study
 
+[![DOI](https://img.shields.io/badge/DOI-10.1038%2Fs41746--026--02380--4-blue)](https://doi.org/10.1038/s41746-026-02380-4)
+[![Paper](https://img.shields.io/badge/Paper-npj%20Digital%20Medicine-green)](https://www.nature.com/articles/s41746-026-02380-4)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
 
@@ -19,6 +21,14 @@ Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</s
 <sup>#</sup>**Corresponding authors:** Yue-Hua Li ([liyuehua77@sjtu.edu.cn](mailto:liyuehua77@sjtu.edu.cn)), Tian-Le Wang ([wangtianle9192@163.com](mailto:wangtianle9192@163.com)), Lei Zhang ([leon3183@163.com](mailto:leon3183@163.com))
 
 ---
+
+## Graphical Abstract
+
+<p align="center">
+  <img src="imgs/flowchart.svg" alt="Study Flowchart" width="100%">
+</p>
+
+<p align="center"><em>Figure 1: Study flowchart showing the evaluation framework for LLMs in brain MRI diagnostic impression generation.</em></p>
 
 ## Overview
 
@@ -318,6 +328,22 @@ The system uses a standardized 16-category disease classification:
 15. Encephalitis
 16. Inflammatory demyelination
 
+## Citation
+
+If you find this work useful, please cite our paper:
+
+```bibtex
+@article{wang_evaluation_2026,
+  title = {Evaluation of large language models for diagnostic impression generation from brain {MRI} report findings: a multicenter benchmark and reader study},
+  author = {Wang, Ming-Liang and Zhang, Rui-Peng and Wu, Wen-Juan and Lu, Yu and Wei, Xiao-Er and Sun, Zheng and Guan, Bao-Hui and Zhang, Jun-Jie and Wu, Xue and Zhang, Lei and Wang, Tian-Le and Li, Yue-Hua},
+  journal = {npj Digital Medicine},
+  year = {2026},
+  issn = {2398-6352},
+  url = {https://doi.org/10.1038/s41746-026-02380-4},
+  doi = {10.1038/s41746-026-02380-4}
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
@@ -326,4 +352,6 @@ Copyright (c) 2025 Ming-Liang Wang, Rui-Peng Zhang, Wen-Juan Wu, Yu Lu, Xiao-Er 
 
 ## Acknowledgments
 
-This research was conducted in partnership with Seoul National University Bundang Hospital and published in *npj | digital medicine*.
+This research was published in *npj Digital Medicine* in partnership with Seoul National University Bundang Hospital.
+
+**Paper:** [https://www.nature.com/articles/s41746-026-02380-4](https://www.nature.com/articles/s41746-026-02380-4)
