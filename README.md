@@ -25,10 +25,18 @@ Ming-Liang Wang<sup>1*</sup>, Rui-Peng Zhang<sup>1*</sup>, Wen-Juan Wu<sup>2*</s
 ## Graphical Abstract
 
 <p align="center">
-  <img src="imgs/flowchart.svg" alt="Study Flowchart" width="100%">
+  <img src="imgs/flowchart.png" alt="Study Flowchart" width="100%">
 </p>
 
 <p align="center"><em>Figure 1: Study flowchart showing the evaluation framework for LLMs in brain MRI diagnostic impression generation.</em></p>
+
+## Main Results
+
+<p align="center">
+  <img src="imgs/main-results.png" alt="Main Results" width="100%">
+</p>
+
+<p align="center"><em>Figure 2: Main results of LLM evaluation on brain MRI diagnostic impression generation.</em></p>
 
 ## Overview
 

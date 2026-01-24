@@ -100,7 +100,8 @@ section h2 {
 }
 
 /* Graphical Abstract */
-.graphical-abstract img {
+.graphical-abstract img,
+.main-results img {
     width: 100%;
     border-radius: 8px;
     margin: 20px 0;
