@@ -29,35 +29,25 @@ A. 预处理阶段:
    - 删除非脑部结构异常（如"鼻窦"、"乳突"、"空泡蝶鞍", "鼻咽", "皮下软组织", "上颌窦", "筛窦", "蝶窦", "额窦"等）；
    - 删除模糊或无诊断意义内容（如"第5脑室形成"、"透明隔可见"）；
 
-B. 结论标准化与映射:
-    1.  识别原始报告"检查结论"或"诊断意见"中的所有诊断。
-    2.  将每个诊断严格映射到上述 **I. 标准化疾病列表** 中的一个或多个类别，并且指出部位，对于白质高信号和脑萎缩，不需要描述部位，部位为"无"，格式为[疾病]+[部位]。
-        * 如果一个诊断描述了列表中的多个疾病状态（例如："老年脑改变伴多发缺血灶"），则应拆分为独立的标准结论（例如："脑萎缩"，"缺血灶"）。
-        * 应用映射规则：
-            * "老年脑" -> "脑萎缩"
-        * 对于"肿瘤"，如果原始报告指明了具体类型（胶质瘤、转移瘤、脑膜瘤、听神经瘤），则在标准化结论"肿瘤"后以括号形式注明，如"肿瘤(胶质瘤)"。
-
-C. 检查所见提取与组织:
+B. 检查所见提取与组织:
     1.  从原始报告的"检查所见"或"影像学表现"段落中，提取所有描述性的影像学发现。
     2.  对提取的影像学发现进行独立整理和结构化描述。
     3.  按照解剖结构或重要性对影像学发现进行排序和组织。
 
+注意：本阶段仅处理检查所见，不涉及检查结论。检查结论将在后续推理阶段由模型基于结构化检查所见进行推断。
+
 III. 输出规范:
 
-<report>
+注意：本阶段仅输出结构化后的检查所见，不输出检查结论。
 
-<conclusion>
-* 每个标准化的疾病诊断占一行。
-* 格式：`[序号]. [部位]+[标准化疾病名称] [(如为肿瘤，则注明具体亚型)]`
-    * 示例：
-        1.  [空]+[脑萎缩]
-        2.  [双侧额顶叶、侧脑室周围]+[白质高信号]
-        3.  [额叶]+[肿瘤(胶质瘤)]
-</conclusion>
+<report>
 
 <findings>
 整体所见概要:
     `[一句话或一段简短文字，总结经过预处理和特征增强后的主要影像学表现，保持专业性和客观性，按解剖结构或重要性排序。]`
+
+各疾病对应所见:
+    `[按上述16类疾病分类组织检查所见。对每一类疾病，列出支持或排除该诊断的影像学证据。如果检查所见中未提及某类疾病，则标注"未见明确异常"。]`
 
 详细影像学发现:
     `[按解剖结构或病灶类型组织的所有影像学发现，格式为：位置、数量、形态、大小、信号特征、病灶周围特点、特征征象。存在部位描述的必须指出部位。每个发现独立描述。]`
@@ -105,35 +95,25 @@ The conclusion must be strictly selected from the following list. If a disease m
 - Delete abnormalities of non-brain structures (e.g., "sinuses," "mastoids," "empty sella," "nasopharynx," "subcutaneous soft tissue," "maxillary sinus," "ethmoid sinus," "sphenoid sinus," "frontal sinus").
 - Delete vague or non-diagnostically significant content (e.g., "cavum septi pellucidi et vergae," "septum pellucidum visible").
 
-**B. Conclusion Standardization and Mapping:**
-1.  Identify all diagnoses in the "Impression" or "Diagnosis" section of the original report.
-2.  Strictly map each diagnosis to one or more categories from the **I. Standardized Disease List** above, and specify the location. For White-matter hyperintensities and Cerebral atrophy, a location is not required; the location should be "None". The format is `[Disease]+[Location]`.
-    * If one diagnosis describes multiple disease states from the list (e.g., "Age-related brain changes with multiple ischemic foci"), it should be split into separate standard conclusions (e.g., "Cerebral atrophy", "White-matter hyperintensities").
-    * Apply mapping rules:
-        * "Senile brain" -> "Cerebral atrophy"
-    * For "Tumor," if the original report specifies the type (e.g., glioma, metastasis, meningioma, acoustic neuroma), indicate it in parentheses after the standardized conclusion "Tumor," such as "Tumor(Glioma)".
-
-**C. Findings Extraction and Organization:**
+**B. Findings Extraction and Organization:**
 1.  Extract all descriptive imaging findings from the "Findings" or "Imaging Description" section of the original report.
 2.  Organize and structure the extracted imaging findings independently.
 3.  Order and organize the imaging findings by anatomical structure or importance.
 
+**Note:** This stage only processes the findings, not the conclusion. The conclusion will be inferred in the subsequent reasoning stage based on the structured findings.
+
 **III. Output Specification:**
 
-<report>
+**Note:** This stage only outputs structured findings, not the diagnostic conclusion.
 
-<conclusion>
-* Each standardized disease diagnosis should be on a new line.
-* Format: `[Index]. [Location]+[Standardized Disease Name] [(Specify subtype if Tumor)]`
-    * Example:
-        1.  [None]+[Cerebral atrophy]
-        2.  [Bilateral frontal and parietal lobes, periventricular]+[White-matter hyperintensities]
-        3.  [Frontal lobe]+[Brain tumor(Glioma)]
-</conclusion>
+<report>
 
 <findings>
 **Overall Findings Summary:**
 `[A single sentence or a short paragraph summarizing the main imaging findings after pre-processing and feature enhancement, maintaining a professional and objective tone, ordered by anatomical structure or importance.]`
+
+**Findings Corresponding to Each Disease:**
+`[Organize findings according to the 16 disease categories above. For each disease category, list the imaging evidence supporting or excluding that diagnosis. If the findings do not mention a particular disease category, indicate "No definite abnormality seen".]`
 
 **Detailed Imaging Findings:**
 `[All imaging findings organized by anatomical structure or lesion type, with format: "anatomical location, number, morphology, size, signal characteristics, perilesional changes, characteristic features." The location must be specified if described. Each finding should be described independently.]`

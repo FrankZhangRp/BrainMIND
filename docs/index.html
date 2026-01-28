@@ -51,7 +51,12 @@
 
         <section class="overview">
             <h2>Overview</h2>
-            <p>This project evaluates the performance of large language models (LLMs) in automated brain MRI report analysis and diagnosis generation. The system processes unstructured MRI reports and generates structured diagnostic conclusions using state-of-the-art language models deployed via VLLM.</p>
+            <p>This project evaluates the performance of large language models (LLMs) in automated brain MRI report analysis and diagnosis generation. The system follows a rigorous two-stage pipeline:</p>
+            <ol>
+                <li><strong>Structuring Stage</strong>: Converts unstructured MRI findings into standardized formats without accessing diagnostic conclusions (avoiding data leakage)</li>
+                <li><strong>Diagnostic Inference Stage</strong>: Generates diagnostic conclusions solely from the structured findings</li>
+            </ol>
+            <p>This separation ensures unbiased evaluation of LLMs' diagnostic reasoning capabilities using state-of-the-art language models deployed via vLLM.</p>
         </section>
 
         <section class="highlights">
